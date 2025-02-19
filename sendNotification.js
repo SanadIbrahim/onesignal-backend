@@ -37,6 +37,7 @@ app.post('/send-notification', async (req, res) => {
           "en": `A new request has been added by ${userName} \n request type: ${requestType}`
          },
         data: { requestType },
+        language: "ar",
         sound: "notification",
       },
       {

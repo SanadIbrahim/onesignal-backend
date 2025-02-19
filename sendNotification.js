@@ -39,7 +39,7 @@ app.post('/send-notification', async (req, res) => {
         },
         data: { requestType }, // Additional data (optional)
         android_sound: "notification", // Custom sound for Android
-        ios_sound: "notification", // Custom sound for iOS
+        ios_sound: "notification.wav", // Custom sound for iOS
       },
       {
         headers: {

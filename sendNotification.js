@@ -28,15 +28,15 @@ app.post('/send-notification', async (req, res) => {
       "https://onesignal.com/api/v1/notifications",
       {
         app_id: ONESIGNAL_APP_ID,
-        included_segments: ["All"], // Send to all users
-        headings: { ar: `طلب رقم ${requestId}` }, // Arabic heading
-        contents: { ar: `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}` }, // Arabic content
+        included_segments: ["All"],
+        headings: { ar: `طلب رقم ${requestId}` },
+        contents: { ar: `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}` },
         data: { requestType },
-        sound: "notification", // Optional: Play a notification sound
+        sound: "notification",
       },
       {
         headers: {
-          Authorization: `Basic ${ONESIGNAL_API_KEY}`,
+          Authorization: `Basic ${ONESIGNAL_API_KEY}`, // Ensure this is correct
           "Content-Type": "application/json",
         },
       }

@@ -12,8 +12,8 @@ const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID;
 const ONESIGNAL_API_KEY = process.env.ONESIGNAL_API_KEY;
 
 // Log environment variables for debugging
-console.log("ONESIGNAL_APP_ID:", ONESIGNAL_APP_ID);
-console.log("ONESIGNAL_API_KEY:", ONESIGNAL_API_KEY);
+console.log("ONESIGNAL_APP_ID:", process.env.ONESIGNAL_APP_ID);
+console.log("ONESIGNAL_API_KEY:", process.env.ONESIGNAL_API_KEY);
 
 // POST endpoint to send notifications
 app.post('/send-notification', async (req, res) => {
@@ -29,8 +29,13 @@ app.post('/send-notification', async (req, res) => {
       {
         app_id: ONESIGNAL_APP_ID,
         included_segments: ["All"],
-        headings: { ar: `طلب رقم ${requestId}` },
-        contents: { ar: `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}` },
+        headings: { 
+          "ar": `طلب رقم ${requestId}` ,
+          "en": `Request Number ${requestId}` },
+        contents: { 
+          "ar": `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}`,
+          "en": `A new request has been added by ${userName} \n request type: ${requestType}`
+         },
         data: { requestType },
         sound: "notification",
       },

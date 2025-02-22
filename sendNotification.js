@@ -32,11 +32,13 @@ app.post('/send-notification', async (req, res) => {
         included_segments: ["All"],
         headings: { 
           "ar": `طلب رقم ${requestId}`,
-          "en": `Request Number ${requestId}`
+          // "en": `Request Number ${requestId}`
+          "en": `طلب رقم ${requestId}`
         },
         contents: { 
           "ar": `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}`,
-          "en": `A new request has been added by ${userName} \n Request Type: ${requestType}`
+          "en": `تم إضافة طلب جديد بواسطة ${userName} \n نوع الطلب: ${requestType}`
+          // "en": `A new request has been added by ${userName} \n Request Type: ${requestType}`
         },
         data: { requestType }, // Additional data (optional)
         android_channel_id: "ca8a3d60-35a0-4f99-940c-e0715dcdcf73", // Add this line
